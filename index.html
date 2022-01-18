@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <title>Document</title>
   <script src="./js/weather.js" defer></script>
   <link rel="stylesheet" href="./css/common.css">
@@ -12,8 +13,14 @@
 </head>
 <body>
   <div id='wrap'>
-    <div id='title'></div>
-    <div id='search'></div>
+    <div id='title'>
+      <button onclick="test()">test</button>
+      <button onclick="test2()">test2</button>
+    </div>
+    <div id='search'>
+      <input name="items1" id='searchcity' placeholder='please enter city name ex)서울, 인천, 부산'>
+      <button onclick='otherCity()'>test</button>
+    </div>
     <div id='time'>
     </div>
     <div id='main'>
@@ -45,7 +52,32 @@
       <div id='pm09temp' class='dailytimetemp'></div>
     </div>
     <div id='daily'>
-      
+      <h2>Daily</h2>
+      <div id='no1' class='day'>
+        <div id='no1_date' class='daily_date'></div>
+        <div id='no1_temp' class='daily_temp'></div>
+        <div id='no1_icon' class='daily_icon'></div>
+      </div>
+      <div id='no2' class='day'>
+        <div id='no2_date' class='daily_date'></div>
+        <div id='no2_temp' class='daily_temp'></div>
+        <div id='no2_icon' class='daily_icon'></div>
+      </div>
+      <div id='no3' class='day'>
+        <div id='no3_date' class='daily_date'></div>
+        <div id='no3_temp' class='daily_temp'></div>
+        <div id='no3_icon' class='daily_icon'></div>
+      </div>
+      <div id='no4' class='day'>
+        <div id='no4_date' class='daily_date'></div>
+        <div id='no4_temp' class='daily_temp'></div>
+        <div id='no4_icon' class='daily_icon'></div>
+      </div>
+      <div id='no5' class='day'>
+        <div id='no5_date' class='daily_date'></div>
+        <div id='no5_temp' class='daily_temp'></div>
+        <div id='no5_icon' class='daily_icon'></div>
+      </div>
     </div>
   </div>
 </body>

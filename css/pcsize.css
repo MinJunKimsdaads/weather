@@ -22,7 +22,15 @@
   position:absolute;
   top: 10%;
   left: 50%;
-  background-color: gray;
+  /* background-color: gray; */
+}
+
+#search input {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: white;
 }
 
 #time {
@@ -164,7 +172,55 @@
   position: absolute;
   top: 70%;
   left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   background-color: gray;
+}
+
+#daily h2 {
+  width: 100%;
+  height: 20%;
+  background-color: red;
+}
+
+#daily .day {
+  width: 15%;
+  height: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: blue;
+}
+
+#daily .day .daily_date {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  background-color: rosybrown;
+}
+
+#daily .day .daily_temp {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  background-color: sandybrown;
+}
+
+#daily .day .daily_icon {
+  width: 40%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  background-color: pink;
 }
 
 
