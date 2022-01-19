@@ -7,6 +7,9 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">
   <script src="./js/weather.js" defer></script>
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/pcsize.css">
@@ -14,15 +17,16 @@
 </head>
 <body>
   <div id='wrap'>
+    <div id='bgdark'></div>
     <div id='title'>
-      <!-- <button onclick="test()">test</button>
-      <button onclick="test2()">test2</button> -->
+      <h2>Weather Today</h2>
     </div>
     <div id='search'>
-      <input name="items1" id='searchcity' placeholder='please enter city name ex)Seoul, Incheon, Busan, Daegu...'>
-      <button onclick='otherCity()'>test</button>
+      <input name="items1" id='searchcity' placeholder='please enter city name ex) Seoul, Busan...'>
+      <div onclick='otherCity()'>search</div>
     </div>
     <div id='time'>
+
     </div>
     <div id='main'>
       <h3 id='weather_summary'></h3>

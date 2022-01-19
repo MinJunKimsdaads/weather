@@ -17,6 +17,19 @@ let pm09temp = document.getElementById('pm09temp');
 let dailyDate=document.getElementsByClassName('daily_date');
 let dailyTemp=document.getElementsByClassName('daily_temp');
 let dailyIcon=document.getElementsByClassName('daily_icon');
+let gettime=document.getElementById('time');
+
+setInterval(function(){
+  let today = new Date();
+  let nowMonth = today.getMonth()+1,
+  nowDate = today.getDate(),
+  nowHours = today.getHours(),
+  nowMinutes = today.getMinutes(),
+  nowSecondes = today.getSeconds();
+  // gettime.innerText=nowHours+':'+nowMinutes+':'+nowSecondes;
+
+  gettime.innerHTML = `${nowHours<10 ? `0${nowHours}`:nowHours}:${nowMinutes<10 ? `0${nowMinutes}`:nowMinutes}:${nowSecondes<10 ? `0${nowSecondes}`:nowSecondes}`
+},1000);
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
 function onGeoOk(position){
@@ -26,9 +39,7 @@ function onGeoOk(position){
   const urlCurrent=`http://api.openweathermap.org/data/2.5/weather?lat=${userLat}&lon=${userLon}&appid=${keyApi}&units=metric`;
   const urlPlan = `http://api.openweathermap.org/data/2.5/forecast?lat=${userLat}&lon=${userLon}&appid=${keyApi}&units=metric`;
   const geourl = `http://api.openweathermap.org/geo/1.0/direct?q=Seoul,KR&limit=5&appid=${keyApi}`;
-  // console.log(urlCurrent);
-  // console.log(urlPlan);
-  // console.log(geourl);
+  
   fetch(urlCurrent).then(response => response.json()).then(data=>{
     weatherSummary.innerText=data.weather[0].description;
     cityName.innerText=data.name;
@@ -106,8 +117,6 @@ async function otherCityWeather(){
   const keyApi2='489ed0b7bc478aa6bbe249e12b428b9a';
   const urlCurrent1=`http://api.openweathermap.org/data/2.5/weather?lat=${otherPosition[0]}&lon=${otherPosition[1]}&appid=${keyApi2}&units=metric`;
   const urlPlan1 = `http://api.openweathermap.org/data/2.5/forecast?lat=${otherPosition[0]}&lon=${otherPosition[1]}&appid=${keyApi2}&units=metric`;
-  // const urlCurrent1=`http://api.openweathermap.org/data/2.5/weather?lat=${latSelected}&lon=${lonSelected}&appid=${keyApi2}&units=metric`;
-  // const urlPlan1 = `http://api.openweathermap.org/data/2.5/forecast?lat=${latSelected}&lon=${lonSelected}&appid=${keyApi2}&units=metric`;
   await fetch(urlCurrent1).then(response => response.json()).then(data=>{
     weatherSummary.innerText=data.weather[0].description;
     cityName.innerText=data.name;
