@@ -77,29 +77,50 @@ function onGeoError(){
   alert('cant workl');
 }
 
-// function otherCity() {
-//   let cityName = '서울'
-//   const keyApi='09A376B6-886C-3877-8D72-B59F5AE68017'
-//   const url1=`http://api.vworld.kr/req/address?service=address&request=getcoord&version=2.0&crs=epsg:4326&address=${cityName}&refine=true&simple=false&format=json&type=road&key=${keyApi}`
-//   console.log(url1);
-//   fetch(url1).then(response => response.json()).then(data=>{
-//     console.log(data.response)
-//   })
-// }
+function otherCity() {
+  let cityName = '서울'
   const keyApi='09A376B6-886C-3877-8D72-B59F5AE68017'
   const url1=`http://api.vworld.kr/req/address?service=address&request=getcoord&version=2.0&crs=epsg:4326&address=${cityName}&refine=true&simple=false&format=json&type=road&key=${keyApi}`
-async function geocoding(url1) {
-    const req = await fetch(url1);
-    return req.json();
+  console.log(url1);
+  // fetch(url1).then(response => response.json()).then(data=>{
+  //   console.log(data.response)
+  // })
+
+  // fetch(url1)
+  //   .then((response)=>{
+  //     if(response.ok){
+  //       return response.json();
+  //     }
+  //     throw new Error('Network response was not ok.');
+  //   }).then((data)=>{
+  //     console.log(JSON.stringify(data));
+  //   }).catch((error)=>{
+  //     console.log(`error:${error}`)
+  //   })
+
+      async function geocoding(url) {
+        const req = await fetch(url);
+        return req.json();
+    }
+    async function doGeocoding(address) {
+        const result = await geocoding(url1);
+        console.log(result);
+    }
+    doGeocoding('서울시 성동구 아차산로7나길 18');
 }
-async function doGeocoding(address) {
-    const result = await geocoding("http://api.vworld.kr/req/address?service=address"
-        + "&request=getcoord"
-        + "&address=" + encodeURI(address) + "&type=road"
-        + "&key=09A376B6-886C-3877-8D72-B59F5AE68017");
-    console.log(result);
-}
-doGeocoding('서울시 성동구 아차산로7나길 18');
+
+// fetch()
+// .then((response)=>{
+//   if(response.ok){
+//     return response.json();
+//   }
+//   throw new Error('Network response was not ok.');
+// }).then((data)=>{
+//   console.log(JSON.stringify(data));
+// }).catch((error)=>{
+//   console.log(`error:${error}`)
+// })
+  
 
 function test() {
   weatherSummary.innerText='dassdd'
