@@ -26,9 +26,9 @@ function onGeoOk(position){
   const urlCurrent=`http://api.openweathermap.org/data/2.5/weather?lat=${userLat}&lon=${userLon}&appid=${keyApi}&units=metric`;
   const urlPlan = `http://api.openweathermap.org/data/2.5/forecast?lat=${userLat}&lon=${userLon}&appid=${keyApi}&units=metric`;
   const geourl = `http://api.openweathermap.org/geo/1.0/direct?q=Seoul,KR&limit=5&appid=${keyApi}`;
-  console.log(urlCurrent);
-  console.log(urlPlan);
-  console.log(geourl);
+  // console.log(urlCurrent);
+  // console.log(urlPlan);
+  // console.log(geourl);
   fetch(urlCurrent).then(response => response.json()).then(data=>{
     weatherSummary.innerText=data.weather[0].description;
     cityName.innerText=data.name;
@@ -88,25 +88,27 @@ function test2(){
 }
 var otherPosition=[];
 
-function otherCity() {
+async function otherCity() {
   let cityName = document.getElementById('searchcity').value;
   const keyApi1='489ed0b7bc478aa6bbe249e12b428b9a';
   const geourl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},KR&limit=5&appid=${keyApi1}`;
-  fetch(geourl).then(response => response.json()).then(data=>{
-    let latSelected = data[0].lat;
+  await fetch(geourl).then(response => response.json()).then(data=>{
+    latSelected = data[0].lat;
     otherPosition.splice(0,2,latSelected);
-    let lonSelected = data[0].lon;
+    lonSelected = data[0].lon;
     otherPosition.push(lonSelected);
   })
   // console.log(otherPosition);
   otherCityWeather();
 }
 
-function otherCityWeather(){
+async function otherCityWeather(){
   const keyApi2='489ed0b7bc478aa6bbe249e12b428b9a';
   const urlCurrent1=`http://api.openweathermap.org/data/2.5/weather?lat=${otherPosition[0]}&lon=${otherPosition[1]}&appid=${keyApi2}&units=metric`;
   const urlPlan1 = `http://api.openweathermap.org/data/2.5/forecast?lat=${otherPosition[0]}&lon=${otherPosition[1]}&appid=${keyApi2}&units=metric`;
-  fetch(urlCurrent1).then(response => response.json()).then(data=>{
+  // const urlCurrent1=`http://api.openweathermap.org/data/2.5/weather?lat=${latSelected}&lon=${lonSelected}&appid=${keyApi2}&units=metric`;
+  // const urlPlan1 = `http://api.openweathermap.org/data/2.5/forecast?lat=${latSelected}&lon=${lonSelected}&appid=${keyApi2}&units=metric`;
+  await fetch(urlCurrent1).then(response => response.json()).then(data=>{
     weatherSummary.innerText=data.weather[0].description;
     cityName.innerText=data.name;
     temp.innerText=data.main.temp+'℃';
@@ -117,7 +119,7 @@ function otherCityWeather(){
     tempMaxValue.innerText=data.main.temp_max+'℃';
     humidityValue.innerText=data.main.humidity+'km/h';
   })
-  fetch(urlPlan1).then(response => response.json()).then(data=>{
+  await fetch(urlPlan1).then(response => response.json()).then(data=>{
     am06temp.innerText=data.list[0].main.temp+'℃';
     am12temp.innerText=data.list[2].main.temp+'℃';
     pm06temp.innerText=data.list[4].main.temp+'℃';
