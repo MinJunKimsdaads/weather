@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">
   <script src="./js/weather.js" defer></script>
   <link rel="stylesheet" href="./css/common.css">
+  <link rel="stylesheet" href="./css/mobile.css">
+  <link rel="stylesheet" href="./css/tablet.css">
   <link rel="stylesheet" href="./css/pcsize.css">
   <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9MQmDQBd6nFQDx0GcpRab5j4wiMf3EP8&libraries=places&callback=initAutocomplete" async defer></script> -->
 </head>
@@ -22,7 +24,7 @@
       <h2>Weather Today</h2>
     </div>
     <div id='search'>
-      <input name="items1" id='searchcity' placeholder='please enter city name ex) Seoul, Busan...'>
+      <input name="items1" autocomplete="on" id='searchcity' placeholder='please enter city name ex) Seoul, Busan...'>
       <div onclick='otherCity()'>search</div>
     </div>
     <div id='time'>
@@ -47,13 +49,13 @@
     </div>
     <div id='timetoday'>
       <h2>Weather Hourly</h2>
-      <div id='am06' class='dailytime'></div>
+      <h3 id='am06' class='dailytime'></h3>
       <div id='am06temp' class='dailytimetemp'></div>
-      <div id='am12' class='dailytime'></div>
+      <h3 id='am12' class='dailytime'></h3>
       <div id='am12temp' class='dailytimetemp'></div>
-      <div id='pm06' class='dailytime'></div>
+      <h3 id='pm06' class='dailytime'></h3>
       <div id='pm06temp' class='dailytimetemp'></div>
-      <div id='pm09' class='dailytime'></div>
+      <h3 id='pm09' class='dailytime'></h3>
       <div id='pm09temp' class='dailytimetemp'></div>
     </div>
     <div id='daily'>

@@ -18,6 +18,7 @@ let dailyDate=document.getElementsByClassName('daily_date');
 let dailyTemp=document.getElementsByClassName('daily_temp');
 let dailyIcon=document.getElementsByClassName('daily_icon');
 let gettime=document.getElementById('time');
+let bg =document.getElementById('wrap');
 
 setInterval(function(){
   let today = new Date();
@@ -27,8 +28,7 @@ setInterval(function(){
   nowMinutes = today.getMinutes(),
   nowSecondes = today.getSeconds();
   // gettime.innerText=nowHours+':'+nowMinutes+':'+nowSecondes;
-
-  gettime.innerHTML = `${nowHours<10 ? `0${nowHours}`:nowHours}:${nowMinutes<10 ? `0${nowMinutes}`:nowMinutes}:${nowSecondes<10 ? `0${nowSecondes}`:nowSecondes}`
+  gettime.innerHTML = `${nowHours<10 ? `0${nowHours}`:nowHours}:${nowMinutes<10 ? `0${nowMinutes}`:nowMinutes}:${nowSecondes<10 ? `0${nowSecondes}`:nowSecondes}`;
 },1000);
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
@@ -41,6 +41,7 @@ function onGeoOk(position){
   const geourl = `http://api.openweathermap.org/geo/1.0/direct?q=Seoul,KR&limit=5&appid=${keyApi}`;
   
   fetch(urlCurrent).then(response => response.json()).then(data=>{
+    const WeatherDescription = data.weather[0].description;
     weatherSummary.innerText=data.weather[0].description;
     cityName.innerText=data.name;
     temp.innerText=data.main.temp+'℃';
@@ -50,7 +51,37 @@ function onGeoOk(position){
     tempMinValue.innerText=data.main.temp_min+'℃';
     tempMaxValue.innerText=data.main.temp_max+'℃';
     humidityValue.innerText=data.main.humidity+'km/h';
+    // console.log(timeSet.getHours());
+    // console.log(WeatherDescription.search('clear'));
+
+    //아침 & clear
+    if(timeSet.getHours()<18&&WeatherDescription.search('clear')!=-1){
+      bg.style.backgroundImage="url('../weather/img/sun_morning.gif')";
+    //저녁 & clear
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('clear')!=-1) {
+      bg.style.backgroundImage="url('../weather/img/sun_night.gif')";
+    //아침 & cloud
+    } else if(timeSet.getHours()<18&&WeatherDescription.search('cloud')!=-1){
+      bg.style.backgroundImage="url('../weather/img/cloud_morning.gif')";
+    //저녁 & cloud
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('cloud')!=-1){
+      bg.style.backgroundImage="url('../weather/img/cloud_night.gif')";
+    //아침 & rain
+    } else if(timeSet.getHours()<18&&WeatherDescription.search('rain')!=-1){
+      bg.style.backgroundImage="url('../weather/img/rain_morning.gif')";
+    //저녁 & rain
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('rain')!=-1){
+      bg.style.backgroundImage="url('../weather/img/rain_night.gif')";
+    //아침 & snow
+    } else if(timeSet.getHours()<18&&WeatherDescription.search('snow')!=-1){
+      bg.style.backgroundImage="url('../weather/img/snow_morning.gif')";
+    //저녁 & snow
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('snow')!=-1){
+      bg.style.backgroundImage="url('../weather/img/snow_morning.gif')";
+    }
+
   })
+
   fetch(urlPlan).then(response => response.json()).then(data=>{
     am06temp.innerText=data.list[0].main.temp+'℃';
     am12temp.innerText=data.list[2].main.temp+'℃';
@@ -118,15 +149,41 @@ async function otherCityWeather(){
   const urlCurrent1=`http://api.openweathermap.org/data/2.5/weather?lat=${otherPosition[0]}&lon=${otherPosition[1]}&appid=${keyApi2}&units=metric`;
   const urlPlan1 = `http://api.openweathermap.org/data/2.5/forecast?lat=${otherPosition[0]}&lon=${otherPosition[1]}&appid=${keyApi2}&units=metric`;
   await fetch(urlCurrent1).then(response => response.json()).then(data=>{
+    const WeatherDescription = data.weather[0].description;
     weatherSummary.innerText=data.weather[0].description;
     cityName.innerText=data.name;
     temp.innerText=data.main.temp+'℃';
     let timeSet = new Date(data.dt*1000);
-    date.innerText=timeSet;
+    date.innerText=timeSet
     feelslikeValue.innerText=data.main.feels_like+'℃';
     tempMinValue.innerText=data.main.temp_min+'℃';
     tempMaxValue.innerText=data.main.temp_max+'℃';
     humidityValue.innerText=data.main.humidity+'km/h';
+
+    if(timeSet.getHours()<18&&WeatherDescription.search('clear')!=-1){
+      bg.style.backgroundImage="url('../weather/img/sun_morning.gif')";
+    //저녁 & clear
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('clear')!=-1) {
+      bg.style.backgroundImage="url('../weather/img/sun_night.gif')";
+    //아침 & cloud
+    } else if(timeSet.getHours()<18&&WeatherDescription.search('cloud')!=-1){
+      bg.style.backgroundImage="url('../weather/img/cloud_morning.gif')";
+    //저녁 & cloud
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('cloud')!=-1){
+      bg.style.backgroundImage="url('../weather/img/cloud_night.gif')";
+    //아침 & rain
+    } else if(timeSet.getHours()<18&&WeatherDescription.search('rain')!=-1){
+      bg.style.backgroundImage="url('../weather/img/rain_morning.gif')";
+    //저녁 & rain
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('rain')!=-1){
+      bg.style.backgroundImage="url('../weather/img/rain_night.gif')";
+    //아침 & snow
+    } else if(timeSet.getHours()<18&&WeatherDescription.search('snow')!=-1){
+      bg.style.backgroundImage="url('../weather/img/snow_morning.gif')";
+    //저녁 & snow
+    } else if(timeSet.getHours()>18&&WeatherDescription.search('snow')!=-1){
+      bg.style.backgroundImage="url('../weather/img/snow_morning.gif')";
+    }
   })
   await fetch(urlPlan1).then(response => response.json()).then(data=>{
     am06temp.innerText=data.list[0].main.temp+'℃';
@@ -161,6 +218,7 @@ async function otherCityWeather(){
     }
   })
 }
+
 
 
 

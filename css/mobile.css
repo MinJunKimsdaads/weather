@@ -1,0 +1,306 @@
+@media (max-width:767px){
+    #wrap {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        top: 0;
+        left: 0;
+        /* background-image: url('../img/snow_morning.gif'); */
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        background-color: rgba(0,0,0,0.3);
+      }
+      
+      #bgdark {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        background-color: rgba(0,0,0,0.5);
+      }
+      
+      #title {
+        width: 40%;
+        height: 5%;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+        backdrop-filter: blur(5px);
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        /* background-color: green; */
+      }
+      
+      #title h2 {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding-left: 15px;
+        align-items: center;
+      }
+      
+      #search {
+        width: 90%;
+        height: 5%;
+        position:absolute;
+        top: 12%;
+        left: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        /* background-color: gray; */
+      }
+      
+      #search input {
+        width: 70%;
+        height: 100%;
+        border-radius: 15px 0 0 15px;
+        border: none;
+        backdrop-filter: blur(5px);
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        background-color: rgba(0,0,0,0);
+      }
+      
+      #search input::placeholder {
+        color: white;
+        font-size: 13px;
+        text-align: center;
+        font-family: 'Noto Sans Display', sans-serif;
+      }
+      
+      #search div {
+        width: 20%;
+        height: 100%;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 15px 15px 0;
+        background-color: black;
+      }
+      
+      #search div:hover {
+        cursor: pointer;
+        color: black;
+        background-color: white;
+      }
+      
+      #time {
+        width: 35%;
+        height: 5%;
+        position: absolute;
+        top: 5%;
+        left: 55%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        backdrop-filter: blur(5px);
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        /* background-color: gray; */
+      }
+      
+      #main {
+        width: 80%;
+        height: 15%;
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        backdrop-filter: blur(5px);
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        /* background-color: gray; */
+      }
+      
+      #main #weather_summary {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        font-size: 15px;
+        padding-left: 15px;
+        /* background-color: red; */
+      }
+      
+      #main #city_name {
+        width: 100%;
+        height: 30%;
+        font-size: 35px;
+        padding-left: 15px;
+        /* background-color: blue; */
+      }
+      
+      #main #temp {
+        width: 100%;
+        height: 40%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 30px;
+        padding-left: 15px;
+        /* background-color: orange; */
+      }
+      
+      #main #date {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 10px;
+        padding-left: 15px;
+        /* background-color: green; */
+      }
+      
+      #sub {
+        width: 80%;
+        height: 15%;
+        position: absolute;
+        top: 36%;
+        left: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 20px;
+        backdrop-filter: blur(5px);
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        /* background-color: gray; */
+      }
+      
+      #sub h2 {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        /* background-color: red; */
+      }
+      
+      #sub h3 {
+        width: 50%;
+        height: 20%;
+        /* background-color: blue; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+      }
+      
+      #sub div {
+        width: 50%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        /* background-color: green; */
+      }
+      
+      #timetoday {
+        width: 80%;
+        height: 15%;
+        position: absolute;
+        top: 53%;
+        left: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        backdrop-filter: blur(5px);
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        /* background-color: gray; */
+      }
+      
+      #timetoday h2 {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        /* background-color: red; */
+      }
+      
+      .dailytime {
+        width: 50%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        /* background-color: red; */
+      }
+      
+      .dailytimetemp {
+        width: 50%;
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        /* background-color: blue; */
+      }
+      
+      #daily {
+        width: 80%;
+        height: 25%;
+        position: absolute;
+        top: 70%;
+        left: 10%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        backdrop-filter: blur(5px);
+        box-shadow: 2px 7px 15px 8px rgba(0,0,0,0.3);
+        /* background-color: gray; */
+      }
+      
+      #daily h2 {
+        width: 100%;
+        height: 20%;
+        padding-left: 15px;
+        font-size: 20px;
+        /* background-color: red; */
+      }
+      
+      #daily .day {
+        width: 100%;
+        height: 16%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        /* background-color: blue; */
+      }
+      
+      #daily .day .daily_date {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        /* background-color: rosybrown; */
+      }
+      
+      #daily .day .daily_temp {
+        width: 40%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        /* background-color: sandybrown; */
+      }
+      
+      #daily .day .daily_icon {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        /* background-color: pink; */
+      }
+
+}
