@@ -37,6 +37,7 @@
         height: 100%;
         display: flex;
         padding-left: 15px;
+        font-size: 20px;
         align-items: center;
       }
       
@@ -203,7 +204,7 @@
         width: 80%;
         height: 15%;
         position: absolute;
-        top: 53%;
+        top: 52%;
         left: 10%;
         display: flex;
         flex-wrap: wrap;
@@ -289,7 +290,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 25px;
+        font-size: 23px;
         /* background-color: sandybrown; */
       }
       
