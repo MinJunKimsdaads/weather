@@ -16,6 +16,6 @@
 <p>1. ajax가 편하다길래 써봤는데 굳이?</p>
 <p>2. fetch가 더 편한 것 같음.</p>
 
-<a href="https://web-portfolio-1-g-shock-vpkwa2blid77oz2.sel4.cloudtype.app/">Demo</a>
+<a href="https://minjunkimsdaads.github.io/weather/">Demo</a>
 
 <h6>2023-12-11 노션 -> git으로 이동</h6>
