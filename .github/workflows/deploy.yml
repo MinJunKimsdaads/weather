@@ -1,0 +1,26 @@
+name: CI/CD via FTP
+
+on:
+  push:
+    branches:
+      - main  # main 브랜치에 푸시될 때만 실행
+  workflow_dispatch:  # 수동 실행도 허용
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 레포지토리 코드 가져오기
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 2. FTP로 업로드 (build 과정 없음)
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./  # 루트에 HTML/CSS/JS 파일이 있다고 가정
+          server-dir: /hosting/developkmj/html/weather/
