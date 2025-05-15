@@ -3,7 +3,7 @@ name: CI/CD via FTP
 on:
   push:
     branches:
-      - main  # main 브랜치에 푸시될 때만 실행
+      - deploy 
   workflow_dispatch:  # 수동 실행도 허용
 
 jobs:
